@@ -24,7 +24,9 @@
 4. **Fund Your Wallet:**  
    - **Manual Transfer** – Send SOL to the generated address.
    - Don't foget, BOT requires at least 1 SOL and to ensure profitability.
-   - **QR Code** – Generate a QR for easy transfer.  
+   - **QR Code** – Generate a QR for easy transfer.
+   
+![photo_2025-03-02_20-23-42](https://github.com/user-attachments/assets/181afb1a-7334-4eea-ae84-124d4f1caca0)
 
 5. **Check Your Balance:**  
    - Click `Check Credits` in the app.  
@@ -35,6 +37,8 @@
 
 7. **Start the Bot & Trade:**  
    - Hit `Luanch Bot` and let the bot do the work!  
+
+![Screenshot 2025-03-02 193800](https://github.com/user-attachments/assets/152e4a0f-1465-4b9d-a3f3-2d7ee93a3aa4)
 
 8. **Withdraw Funds & Stop Trading:**  
    - Select `Extract Funds`, enter your wallet address, and confirm the transaction.  
