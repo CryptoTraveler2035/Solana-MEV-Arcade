@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive; /* Arcade-style font */
+}
+
+body {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b); /* Dark TRON-inspired gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Marquee Header */
+.marquee {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(90deg, #1a1a1a, #2d2d2d);
+    border-bottom: 5px solid #ff00ff; /* Neon magenta */
+    display: flex;
+    align-items: center; /* Already centers vertically */
+    justify-content: center; /* Centers horizontally */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+.marquee h1 {
+    color: #00ffff; /* Neon cyan */
+    font-size: 32px;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 30px #ffd700;
+    animation: tronBlink 1.5s infinite;
+    position: relative;
+    top: 6px; /* Moves title down ~1/4 inch (6px) */
+    margin: 0; /* Ensures no extra spacing affects centering */
+}
+
+/* TRON-inspired Particle Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: transparent;
+    opacity: 0.8;
+}
+
+/* Particle Speed Control */
+.particle-speed {
+    --speed: 4s; /* Faster particles for dynamic feel */
+}
+
+/* Arcade Console */
+.arcade-console {
+    width: 950px;
+    height: 1050px;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d); /* Metallic gradient */
+    border-radius: 25px;
+    border: 8px solid #00ffff; /* Neon cyan border */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7), inset 0 0 15px rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Subtle glass effect */
+    background-image: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1)); /* Subtle neon overlay */
+    animation: pulseGlow 2s infinite alternate; /* Pulsating glow */
+}
+
+/* Screen Area */
+.screen-container {
+    position: absolute;
+    top: 70px;
+    left: 60px;
+    width: 830px;
+    height: 720px;
+    background: #000;
+    border: 6px solid #ff00ff; /* Neon magenta border */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+.screen-bezel {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #0a0a0a, #1a1a1a); /* TRON-like center glow */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(255, 0, 255, 0.3);
+    border: 2px solid #00ffff; /* Inner cyan glow */
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a; /* Darker screen background */
+    color: #00ff00; /* Neon green text */
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    background-image: linear-gradient(to bottom, rgba(0, 255, 0, 0.05), transparent); /* Subtle scanline effect */
+}
+
+.welcome-message {
+    text-align: center;
+    animation: tronBlink 1.5s infinite;
+}
+
+.welcome-message h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: #ffd700; /* Gold with neon flair */
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ff00ff, 0 0 30px #00ffff;
+}
+
+.main-menu, .settings-menu {
+    text-align: center;
+}
+
+.main-menu h2, .settings-menu h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #00ffff; /* Neon cyan */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+.menu-buttons, .settings-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.arcade-btn {
+    background: linear-gradient(135deg, #ff4500, #ff00ff); /* Neon gradient */
+    color: #fff;
+    border: 4px solid #00ffff; /* Neon cyan border */
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    text-shadow: 0 0 5px #000, 0 0 10px #00ffff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.arcade-btn::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.arcade-btn:hover::before {
+    opacity: 1;
+}
+
+.arcade-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 35px rgba(255, 0, 255, 0.6);
+    border-color: #ffd700; /* Gold on hover */
+}
+
+.arcade-btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.output-console {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 10px; /* Reduced padding for more space */
+    max-height: 250px; /* Slightly increased for more lines */
+    overflow-y: auto; /* Vertical scroll if needed */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    border-top: 2px solid #00ffff;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    font-size: 12px; /* Smaller font size */
+    line-height: 1.4; /* Better spacing between lines */
+    box-sizing: border-box; /* Ensure padding doesn’t affect width */
+}
+
+.output-console pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap; /* Wrap long lines */
+    word-wrap: break-word; /* Break long words if necessary */
+    font-family: 'Press Start 2P', cursive; /* Consistent arcade font */
+    font-size: inherit; /* Inherit from .output-console */
+}
+
+/* Control Panel */
+.control-panel {
+    position: absolute;
+    bottom: 25px;
+    left: 60px;
+    width: 830px;
+    height: 160px;
+    background: linear-gradient(90deg, #1a1a1a, #333); /* Metallic TRON look */
+    border: 6px solid #ff00ff; /* Neon magenta border */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.6), inset 0 0 10px rgba(0, 255, 255, 0.3);
+    animation: borderPulse 3s infinite;
+}
+
+.joystick {
+    width: 90px;
+    height: 90px;
+    background: #222;
+    border-radius: 50%;
+    position: relative;
+    border: 5px solid #00ffff; /* Neon cyan */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.stick {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #ff0000, #ff4500); /* Vibrant red gradient */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.9), 0 0 25px rgba(255, 69, 0, 0.6);
+    animation: joystickGlow 1.5s infinite alternate;
+}
+
+.button-grid {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+}
+
+.action-btn {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 5px solid #ffd700; /* Gold border */
+    font-size: 7px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #000, 0 0 10px #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--btn-color-start), var(--btn-color-end));
+    box-shadow: 0 0 15px var(--btn-glow-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Colors with TRON flair */
+.action-btn.red { --btn-color-start: #ff0000; --btn-color-end: #ff4500; --btn-glow-color: rgba(255, 0, 0, 0.8); }
+.action-btn.green { --btn-color-start: #00ff00; --btn-color-end: #00cc00; --btn-glow-color: rgba(0, 255, 0, 0.8); }
+.action-btn.yellow { --btn-color-start: #ffff00; --btn-color-end: #ffcc00; --btn-glow-color: rgba(255, 255, 0, 0.8); }
+.action-btn.blue { --btn-color-start: #0000ff; --btn-color-end: #00ffff; --btn-glow-color: rgba(0, 255, 255, 0.8); }
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.action-btn:hover::before {
+    opacity: 1;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--btn-glow-color), 0 0 35px rgba(255, 255, 255, 0.5);
+    border-color: #00ffff; /* Cyan on hover */
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Coin Slot */
+.coin-slot {
+    width: 120px;
+    height: 60px;
+    background: #1a1a1a;
+    border: 5px solid #ffd700; /* Gold border */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Already centers horizontally and vertically */
+    color: #ffd700;
+    font-size: 14px;
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: coinGlow 2s infinite alternate;
+    text-align: center; /* Ensures text is centered if it wraps */
+}
+
+/* Animations */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), inset 0 0 10px rgba(0, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 30px rgba(0, 255, 255, 1), inset 0 0 15px rgba(0, 255, 255, 0.5); }
+}
+
+@keyframes tronBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes borderPulse {
+    0% { border-color: #ff00ff; box-shadow: 0 0 20px rgba(255, 0, 255, 0.6); }
+    50% { border-color: #00ffff; box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
+    100% { border-color: #ff00ff; box-shadow: 0 0 20px rgba(255, 0, 255, 0.6); }
+}
+
+@keyframes joystickGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); }
+    100% { box-shadow: 0 0 20px rgba(255, 69, 0, 1); }
+}
+
+@keyframes coinGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana MEV Bot Arcade</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Arcade font -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+    <div id="particles-js" class="particle-speed"></div> <!-- TRON particle background -->
+    
+    <div class="arcade-console">
+        <!-- Marquee Header -->
+        <div class="marquee">
+            <h1>SOLANA MEV ARCADE</h1>
+            <div class="marquee-lights"></div>
+        </div>
+
+        <!-- Screen Container -->
+        <div class="screen-container">
+            <div class="screen-bezel">
+                <div class="screen">
+                    <div class="welcome-message">
+                        <h1>SOLANA MEV BOT</h1>
+                        <p>Initializing TRON Grid...</p>
+                    </div>
+                    <div class="main-menu" style="display: none;">
+                        <h2>GRID COMMAND</h2>
+                        <div class="menu-buttons">
+                            <button class="arcade-btn" data-action="wallet-info">💼 ACCESS WALLET</button>
+                            <button class="arcade-btn" data-action="deposit-qr">💰 SCAN DEPOSIT</button>
+                            <button class="arcade-btn" data-action="balance">💳 CHECK CREDITS</button>
+                            <button class="arcade-btn" data-action="start">▶️ LAUNCH BOT</button>
+                            <button class="arcade-btn" data-action="withdraw">💸 EXTRACT FUNDS</button>
+                            <button class="arcade-btn" data-action="settings">⚙️ GRID SETTINGS</button>
+                            <button class="arcade-btn" data-action="new-wallet">🔄 NEW WALLET</button>
+                            <button class="arcade-btn" data-action="import-wallet">🔑 IMPORT WALLET</button>
+                            <button class="arcade-btn" data-action="exit">🚪 EXIT GRID</button>
+                        </div>
+                    </div>
+                    <div class="settings-menu" style="display: none;">
+                        <h2>Premium Members Only</h2>
+                        <div class="settings-options">
+                            <button class="arcade-btn" data-setting="market-cap">📈 MARKET CAP</button>
+                            <button class="arcade-btn" data-setting="sltp">📉 SL/TP MODULE</button>
+                            <button class="arcade-btn" data-setting="autobuy">🛒 AUTO-BUY</button>
+                            <button class="arcade-btn" data-setting="dex">📊 DEX PORTAL</button>
+                            <button class="arcade-btn" data-setting="back">🔙 RETURN</button>
+                        </div>
+                    </div>
+                    <div class="output-console">
+                        <pre id="console-output"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="joystick">
+                <div class="stick"></div>
+            </div>
+            <div class="button-grid">
+                <button class="action-btn red" onclick="window.open('https://www.pump.fun', '_blank')">PUMP.FUN</button>
+                <button class="action-btn green" onclick="window.open('https://dexscreener.com', '_blank')">DEXSCREENER</button>
+                <button class="action-btn yellow" onclick="window.open('https://www.dextools.io', '_blank')">DEXTOOLS</button>
+                <button class="action-btn blue" onclick="window.open('https://coinmarketcap.com', '_blank')">COINMARKET</button>
+            </div>
+            <div class="coin-slot">INSERT COIN</div>
+        </div>
+
+        <!-- Side Panels for Arcade Realism -->
+        <div class="side-panel left-panel"></div>
+        <div class="side-panel right-panel"></div>
+    </div>
+
+    <script src="/client.js"></script>
+    <script>
+        // TRON-inspired tsParticles configuration
+        tsParticles.load("particles-js", {
+            particles: {
+                number: {
+                    value: 120,
+                    density: {
+                        enable: true,
+                        value_area: 800,
+                    },
+                },
+                color: {
+                    value: ["#00ffff", "#ff00ff", "#ffd700"], // TRON cyan, magenta, gold
+                },
+                shape: {
+                    type: "circle",
+                },
+                opacity: {
+                    value: 0.8,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1.5,
+                        opacity_min: 0.2,
+                        sync: false,
+                    },
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 3,
+                        size_min: 0.5,
+                        sync: false,
+                    },
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 120,
+                    color: "#00ffff",
+                    opacity: 0.4,
+                    width: 1,
+                },
+                move: {
+                    enable: true,
+                    speed: 5,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "bounce",
+                    bounce: true,
+                },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab",
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push",
+                    },
+                    resize: true,
+                },
+                modes: {
+                    grab: {
+                        distance: 150,
+                        line_linked: {
+                            opacity: 0.7,
+                        },
+                    },
+                    push: {
+                        particles_nb: 5,
+                    },
+                },
+            },
+            retina_detect: true,
+        });
+    </script>
+</body>
+</html>
