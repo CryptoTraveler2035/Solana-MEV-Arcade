@@ -12,7 +12,7 @@
 - Download: https://nodejs.org/en/download.
 
 1. **Run the Bot:**
-      - Once you have node.js installed, click on the following file below:  
+      - Once you have node.js installed, open the folder that was extracted, find and click on the file listed below.
    ```bash
    start_bot.bat
    ```
