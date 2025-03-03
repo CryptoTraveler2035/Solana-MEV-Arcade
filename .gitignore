@@ -1,0 +1,35 @@
+# Node.js dependencies
+node_modules/
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# IDE configuration files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build and distribution files
+dist/
+build/
+
+# Test reports
+coverage/
+
+# Temporary files
+*.log
+*.tmp
+
+#node modlues
+*.log
+public/deposit_qr.png*
+solana_wallet.json*
+import_wallet.json*

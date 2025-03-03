@@ -1,0 +1,20 @@
+{
+  "name": "solana-mev-bot-arcade",
+  "version": "1.0.0",
+  "description": "Solana MEV Bot with Arcade GUI",
+  "main": "src/mevbot.js",
+  "scripts": {
+    "start": "node src/mevbot.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.2",
+    "bs58": "^4.0.1",
+    "chalk": "^4.1.2",
+    "express": "^4.21.2",
+    "inquirer": "^8.2.6",
+    "open": "^8.4.2",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.4",
+    "ws": "^8.18.0"
+  }
+}
