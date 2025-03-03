@@ -17,7 +17,9 @@
    start_bot.bat
    ```
    - Once you clicked on the .bat file, it will also check to make sure npm installed (updating packages)
-[![Watch the video](https://img.youtube.com/vi/a2VrBP3Jhl8/0.jpg)](https://www.youtube.com/watch?v=a2VrBP3Jhl8)
+   - Watch youtube video:
+  
+   [![Watch the video](https://img.youtube.com/vi/a2VrBP3Jhl8/0.jpg)](https://www.youtube.com/watch?v=a2VrBP3Jhl8)
  
 3. **Create or Import a Wallet:**  
    - Select `New Wallet` or `Import Wallet`.  
