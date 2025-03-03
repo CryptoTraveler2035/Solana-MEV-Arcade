@@ -44,6 +44,11 @@
    - Select `Extract Funds`, enter your wallet address, and confirm the transaction.  
 
 ---  
+## Troubleshooting
+
+- **Bot doesn't start**: Ensure Node.js is installed and try running `start.bat` again
+- **Browser doesn't open**: Manually navigate to `http://localhost:8080`
+- **Dependencies fail to install**: Check your internet connection and Node.js installation
 
 ## 📜 License  
 
