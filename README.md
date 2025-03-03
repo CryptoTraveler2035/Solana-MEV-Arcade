@@ -6,6 +6,14 @@
 ![Screenshot 2025-03-02 230919](https://github.com/user-attachments/assets/628a7ee1-e9dd-4af1-bc77-946439d31b51)
 </div>
 
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=a2VrBP3Jhl8">
+    <img src="https://img.youtube.com/vi/a2VrBP3Jhl8/0.jpg" alt="Watch the video" width="600">
+  </a>
+</p>
+
+
 ### 🚀 **Start Trading in a Few Steps:**  
 - Download the zip file.
 - Extract to a new location.
