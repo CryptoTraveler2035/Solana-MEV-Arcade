@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 Solana Tradind MEV Bot 🤖  
+# 🤖 Solana TradiNG MEV Bot 🤖  
  ☢️ Automated arbitrage for Solana MEV strategies. ☢️ 
 ---
 ![Screenshot 2025-03-02 230919](https://github.com/user-attachments/assets/628a7ee1-e9dd-4af1-bc77-946439d31b51)
